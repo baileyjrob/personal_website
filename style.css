@@ -1,0 +1,23 @@
+h1 {
+	color: blue;
+}
+
+.blue_overline_text {
+	color: blue;
+	text-decoration: overline;
+}
+
+#red_underline_text {
+	color: red;
+	text-decoration: underline;
+}
+
+ul.bullet {list-style-type: circle;}
+
+body {
+	background-image: url("bg4.jpg");
+}
+
+.center {
+	text-align: center;
+}

@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Material Design for Bootstrap</title>
+  <!-- MDB icon -->
+  <link rel="icon" href="MDBootstrap/img/mdb-favicon.ico" type="image/x-icon">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <!-- Google Fonts Roboto -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="MDBootstrap/css/bootstrap.min.css">
+  <!-- Material Design Bootstrap -->
+  <link rel="stylesheet" href="MDBootstrap/css/mdb.min.css">
+  <!-- Your custom styles (optional) -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<style>
+  .topnav {
+    overflow: hidden;
+    background-color: #333;
+  }
+
+  .topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+
+  .topnav a.active {
+    background-color: #4CAF50;
+    color: white;
+  }
+
+  .topnav .icon {
+    display: none;
+  }
+
+  @media screen and (max-width: 600px) {
+    .topnav a:not(:first-child) {display: none;}
+    .topnav a.icon {
+      float: right;
+      display: block;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .topnav.responsive {position: relative;}
+    .topnav.responsive .icon {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .topnav.responsive a {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+  }
+</style>
+
+<body onload="call_to_output()">
+  
+  <div class="topnav" id="myTopnav">
+    <a href="#home" class="active">Home</a>
+    <a href="about.html">About</a>
+    <a href="help.html">Help</a>
+    <a href="javascript:void(0);" class="icon" onclick="navBarFunction()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+
+<!-- Start your project here-->  
+<div class="user_output">
+
+<!--Accordion #0-->
+<!--Accordion wrapper-->
+<div class="accordion md-accordion accordion-blocks" id="accordion0" role="tablist"
+  aria-multiselectable="true">
+
+  <!-- Accordion card -->
+  <div class="card">
+
+    <!-- Card header -->
+    <div class="card-header" role="tab" id="heading0">
+
+      <!-- Heading -->
+      <a data-toggle="collapse" data-parent="#accordion0" href="#collapse0" aria-expanded="true"
+        aria-controls="collapse0">
+        <h5 class="mt-1 mb-0">
+          <span id="tripName0">Concert Trip #</span><span> Trip Price: <strong id="totalPrice0">N/A</strong></span>
+          <i class="fas fa-angle-down rotate-icon"></i>
+        </h5>
+      </a>
+
+    </div>
+
+    <!-- Card body -->
+    <div id="collapse0" class="collapse" role="tabpanel" aria-labelledby="heading0"
+      data-parent="#accordion0">
+      <div class="card-body">
+
+        <!--Top Table UI-->
+        <div class="table-ui p-2 mb-3 mx-3 mb-4">
+
+          <!--Grid row-->
+          <div class="row">
+
+            <div class="col">
+              <button type="button" class="btn btn-primary" onclick="load_accordion(0)">Trip Overview</button>
+            </div>
+
+            <div class="col">
+                <button type="button" class="btn btn-primary" onclick="show_flights(0)">Flights</button>
+            </div>
+
+            <div class="col">
+                <button type="button" class="btn btn-primary" onclick="show_hotels(0)">Hotels</button>
+            </div>
+
+            <div class="col">
+                <button type="button" class="btn btn-dark" onclick="spotify_button()">Spotify Playlist</button>
+            </div>
+
+          </div>
+          <!--Grid row-->
+
+        </div>
+        <!--Top Table UI-->
+
+        <!-- Table responsive wrapper -->
+        <div class="table-responsive mx-3">
+          <!--Table-->
+          <table class="table table-hover mb-0">
+
+            <!--Table head-->
+            <thead>
+              <tr>
+                <th class="th-lg"><strong>Type</strong></th>
+                <th class="th-lg"><strong>Description</strong></th>
+                <th class="th-lg"><strong>Price</strong></th>
+                <th></th>
+              </tr>
+            </thead>
+            <!--Table head-->
+
+            <!--Table body-->
+            <tbody>
+              <tr>
+                <td id="type00">Concert:</td>
+                <td id="description00">Concert Description...</td>
+                <td><strong id="price00">N/A</strong></td>
+                <td>
+                  <button type="button" class="btn btn-primary btn-sm" id="button00" onclick="add_to_trip(0,0)">Add to Trip</button>
+                </td>
+              </tr>
+              <tr>
+                <td id="type01">Flight:</td>
+                <td id="description01">N/A</td>
+                <td><strong id="price01">N/A</strong></td>
+                <td>
+                  <button type="button" class="btn btn-primary btn-sm" id="button01" onclick="add_to_trip(0,1)">Add to Trip</button>
+                </td>
+              </tr>
+              <tr>
+                <td id="type02">Hotel:</td>
+                <td id="description02">Hotel Information...</td>
+                <td><strong id="price02">N/A</strong></td>
+                <td>
+                  <button type="button" class="btn btn-primary btn-sm" id="button02" onclick="add_to_trip(0,2)">Add to Trip</button>
+                </td>
+              </tr>
+              <tr id="row03">
+                <td id="type03">Blank:</td>
+                <td id="description03">Information...</td>
+                <td><strong id="price03">N/A</strong></td>
+                <td>
+                  <button type="button" class="btn btn-primary btn-sm" id="button03" onclick="add_to_trip(0,3)">Add to Trip</button>
+                </td>
+              </tr>
+              <tr id="row04">
+                <td id="type04">Blank:</td>
+                <td id="description04">Information...</td>
+                <td><strong id="price04">N/A</strong></td>
+                <td>
+                  <button type="button" class="btn btn-primary btn-sm" id="button04" onclick="add_to_trip(0,4)">Add to Trip</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Accordion #1-->
+<!--Accordion wrapper-->
+<div class="accordion md-accordion accordion-blocks" id="accordion1" role="tablist"
+  aria-multiselectable="true">
+
+  <!-- Accordion card -->
+  <div class="card">
+
+    <!-- Card header -->
+    <div class="card-header" role="tab" id="heading1">
+
+      <!-- Heading -->
+      <a data-toggle="collapse" data-parent="#accordion1" href="#collapse1" aria-expanded="true"
+        aria-controls="collapse1">
+        <h5 class="mt-1 mb-0">
+          <span id="tripName1">Concert Trip #</span><span> Trip Price: <strong id="totalPrice1">N/A</strong></span>
+          <i class="fas fa-angle-down rotate-icon"></i>
+        </h5>
+      </a>
+
+    </div>
+
+    <!-- Card body -->
+    <div id="collapse1" class="collapse" role="tabpanel" aria-labelledby="heading1"
+      data-parent="#accordion1">
+      <div class="card-body">
+
+        <!--Top Table UI-->
+        <div class="table-ui p-2 mb-3 mx-3 mb-4">
+
+          <!--Grid row-->
+          <div class="row">
+
+            <div class="col">
+              <button type="button" class="btn btn-primary" onclick="load_accordion(1)">Trip Overview</button>
+            </div>
+
+            <div class="col">
+                <button type="button" class="btn btn-primary" onclick="show_flights(1)">Flights</button>
+            </div>
+
+            <div class="col">
+                <button type="button" class="btn btn-primary" onclick="show_hotels(1)">Hotels</button>
+            </div>
+
+            <div class="col">
+                <button type="button" class="btn btn-dark" onclick="spotify_button()">Spotify Playlist</button>
+            </div>
+
+          </div>
+          <!--Grid row-->
+
+        </div>
+        <!--Top Table UI-->
+
+        <!-- Table responsive wrapper -->
+        <div class="table-responsive mx-3">
+          <!--Table-->
+          <table class="table table-hover mb-0">
+
+            <!--Table head-->
+            <thead>
+              <tr>
+                <th class="th-lg"><strong>Type</strong></th>
+                <th class="th-lg"><strong>Description</strong></th>
+                <th class="th-lg"><strong>Price</strong></th>
+                <th></th>
+              </tr>
+            </thead>
+            <!--Table head-->
+
+            <!--Table body-->
+            <tbody>
+              <tr>
+                <td id="type10">Concert:</td>
+                <td id="description10">Concert Description...</td>
+                <td><strong id="price10">N/A</strong></td>
+                <td>
+                  <button type="button" class="btn btn-primary btn-sm" id="button10" onclick="add_to_trip(1,0)">Add to Trip</button>
+                </td>
+              </tr>
+              <tr>
+                <td id="type11">Flight:</td>
+                <td id="description11">N/A</td>
+                <td><strong id="price11">N/A</strong></td>
+                <td>
+                  <button type="button" class="btn btn-primary btn-sm" id="button11" onclick="add_to_trip(1,1)">Add to Trip</button>
+                </td>
+              </tr>
+              <tr>
+                <td id="type12">Hotel:</td>
+                <td id="description12">Hotel Information...</td>
+                <td><strong id="price12">N/A</strong></td>
+                <td>
+                  <button type="button" class="btn btn-primary btn-sm" id="button12" onclick="add_to_trip(1,2)">Add to Trip</button>
+                </td>
+              </tr>
+              <tr id="row13">
+                <td id="type13">Blank:</td>
+                <td id="description13">Information...</td>
+                <td><strong id="price13">N/A</strong></td>
+                <td>
+                  <button type="button" class="btn btn-primary btn-sm" id="button13" onclick="add_to_trip(1,3)">Add to Trip</button>
+                </td>
+              </tr>
+              <tr id="row14">
+                <td id="type14">Blank:</td>
+                <td id="description14">Information...</td>
+                <td><strong id="price14">N/A</strong></td>
+                <td>
+                  <button type="button" class="btn btn-primary btn-sm" id="button14" onclick="add_to_trip(1,4)">Add to Trip</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Accordion #2-->
+<!--Accordion wrapper-->
+<div class="accordion md-accordion accordion-blocks" id="accordion2" role="tablist"
+  aria-multiselectable="true">
+
+  <!-- Accordion card -->
+  <div class="card">
+
+    <!-- Card header -->
+    <div class="card-header" role="tab" id="heading2">
+
+      <!-- Heading -->
+      <a data-toggle="collapse" data-parent="#accordion2" href="#collapse2" aria-expanded="true"
+        aria-controls="collapse2">
+        <h5 class="mt-1 mb-0">
+          <span id="tripName2">Concert Trip #</span><span> Trip Price: <strong id="totalPrice2">N/A</strong></span>
+          <i class="fas fa-angle-down rotate-icon"></i>
+        </h5>
+      </a>
+
+    </div>
+
+    <!-- Card body -->
+    <div id="collapse2" class="collapse" role="tabpanel" aria-labelledby="heading2"
+      data-parent="#accordion2">
+      <div class="card-body">
+
+        <!--Top Table UI-->
+        <div class="table-ui p-2 mb-3 mx-3 mb-4">
+
+          <!--Grid row-->
+          <div class="row">
+
+            <div class="col">
+              <button type="button" class="btn btn-primary" onclick="load_accordion(2)">Trip Overview</button>
+            </div>
+
+            <div class="col">
+                <button type="button" class="btn btn-primary" onclick="show_flights(2)">Flights</button>
+            </div>
+
+            <div class="col">
+                <button type="button" class="btn btn-primary" onclick="show_hotels(2)">Hotels</button>
+            </div>
+
+            <div class="col">
+                <button type="button" class="btn btn-dark" onclick="spotify_button()">Spotify Playlist</button>
+            </div>
+
+          </div>
+          <!--Grid row-->
+
+        </div>
+        <!--Top Table UI-->
+
+        <!-- Table responsive wrapper -->
+        <div class="table-responsive mx-3">
+          <!--Table-->
+          <table class="table table-hover mb-0">
+
+            <!--Table head-->
+            <thead>
+              <tr>
+                <th class="th-lg"><strong>Type</strong></th>
+                <th class="th-lg"><strong>Description</strong></th>
+                <th class="th-lg"><strong>Price</strong></th>
+                <th></th>
+              </tr>
+            </thead>
+            <!--Table head-->
+
+            <!--Table body-->
+            <tbody>
+              <tr>
+                <td id="type20">Concert:</td>
+                <td id="description20">Concert Description...</td>
+                <td><strong id="price20">N/A</strong></td>
+                <td>
+                  <button type="button" class="btn btn-primary btn-sm" id="button20" onclick="add_to_trip(2,0)">Add to Trip</button>
+                </td>
+              </tr>
+              <tr>
+                <td id="type21">Flight:</td>
+                <td id="description21">N/A</td>
+                <td><strong id="price21">N/A</strong></td>
+                <td>
+                  <button type="button" class="btn btn-primary btn-sm" id="button21" onclick="add_to_trip(2,1)">Add to Trip</button>
+                </td>
+              </tr>
+              <tr>
+                <td id="type22">Hotel:</td>
+                <td id="description22">Hotel Information...</td>
+                <td><strong id="price22">N/A</strong></td>
+                <td>
+                  <button type="button" class="btn btn-primary btn-sm" id="button22" onclick="add_to_trip(2,2)">Add to Trip</button>
+                </td>
+              </tr>
+              <tr id="row23">
+                <td id="type23">Blank:</td>
+                <td id="description23">Information...</td>
+                <td><strong id="price23">N/A</strong></td>
+                <td>
+                  <button type="button" class="btn btn-primary btn-sm" id="button23" onclick="add_to_trip(2,3)">Add to Trip</button>
+                </td>
+              </tr>
+              <tr id="row24">
+                <td id="type24">Blank:</td>
+                <td id="description24">Information...</td>
+                <td><strong id="price24">N/A</strong></td>
+                <td>
+                  <button type="button" class="btn btn-primary btn-sm" id="button24" onclick="add_to_trip(2,4)">Add to Trip</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--Accordion #3-->
+<!--Accordion wrapper-->
+<div class="accordion md-accordion accordion-blocks" id="accordion3" role="tablist"
+  aria-multiselectable="true">
+
+  <!-- Accordion card -->
+  <div class="card">
+
+    <!-- Card header -->
+    <div class="card-header" role="tab" id="heading3">
+
+      <!-- Heading -->
+      <a data-toggle="collapse" data-parent="#accordion3" href="#collapse3" aria-expanded="true"
+        aria-controls="collapse3">
+        <h5 class="mt-1 mb-0">
+          <span id="tripName3">Concert Trip #</span><span> Trip Price: <strong id="totalPrice3">N/A</strong></span>
+          <i class="fas fa-angle-down rotate-icon"></i>
+        </h5>
+      </a>
+
+    </div>
+
+    <!-- Card body -->
+    <div id="collapse3" class="collapse" role="tabpanel" aria-labelledby="heading3"
+      data-parent="#accordion3">
+      <div class="card-body">
+
+        <!--Top Table UI-->
+        <div class="table-ui p-2 mb-3 mx-3 mb-4">
+
+          <!--Grid row-->
+          <div class="row">
+
+            <div class="col">
+              <button type="button" class="btn btn-primary" onclick="load_accordion(3)">Trip Overview</button>
+            </div>
+
+            <div class="col">
+                <button type="button" class="btn btn-primary" onclick="show_flights(3)">Flights</button>
+            </div>
+
+            <div class="col">
+                <button type="button" class="btn btn-primary" onclick="show_hotels(3)">Hotels</button>
+            </div>
+
+            <div class="col">
+                <button type="button" class="btn btn-dark" onclick="spotify_button()">Spotify Playlist</button>
+            </div>
+
+          </div>
+          <!--Grid row-->
+
+        </div>
+        <!--Top Table UI-->
+
+        <!-- Table responsive wrapper -->
+        <div class="table-responsive mx-3">
+          <!--Table-->
+          <table class="table table-hover mb-3">
+
+            <!--Table head-->
+            <thead>
+              <tr>
+                <th class="th-lg"><strong>Type</strong></th>
+                <th class="th-lg"><strong>Description</strong></th>
+                <th class="th-lg"><strong>Price</strong></th>
+                <th></th>
+              </tr>
+            </thead>
+            <!--Table head-->
+
+            <!--Table body-->
+            <tbody>
+              <tr>
+                <td id="type30">Concert:</td>
+                <td id="description30">Concert Description...</td>
+                <td><strong id="price30">N/A</strong></td>
+                <td>
+                  <button type="button" class="btn btn-primary btn-sm" id="button30" onclick="add_to_trip(3,0)">Add to Trip</button>
+                </td>
+              </tr>
+              <tr>
+                <td id="type31">Flight:</td>
+                <td id="description31">N/A</td>
+                <td><strong id="price31">N/A</strong></td>
+                <td>
+                  <button type="button" class="btn btn-primary btn-sm" id="button31" onclick="add_to_trip(3,1)">Add to Trip</button>
+                </td>
+              </tr>
+              <tr>
+                <td id="type32">Hotel:</td>
+                <td id="description32">Hotel Information...</td>
+                <td><strong id="price32">N/A</strong></td>
+                <td>
+                  <button type="button" class="btn btn-primary btn-sm" id="button32" onclick="add_to_trip(3,2)">Add to Trip</button>
+                </td>
+              </tr>
+              <tr id="row33">
+                <td id="type33">Blank:</td>
+                <td id="description33">Information...</td>
+                <td><strong id="price33">N/A</strong></td>
+                <td>
+                  <button type="button" class="btn btn-primary btn-sm" id="button33" onclick="add_to_trip(3,3)">Add to Trip</button>
+                </td>
+              </tr>
+              <tr id="row34">
+                <td id="type34">Blank:</td>
+                <td id="description34">Information...</td>
+                <td><strong id="price34">N/A</strong></td>
+                <td>
+                  <button type="button" class="btn btn-primary btn-sm" id="button34" onclick="add_to_trip(3,4)">Add to Trip</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--Accordion #4-->
+<!--Accordion wrapper-->
+<div class="accordion md-accordion accordion-blocks" id="accordion4" role="tablist"
+  aria-multiselectable="true">
+
+  <!-- Accordion card -->
+  <div class="card">
+
+    <!-- Card header -->
+    <div class="card-header" role="tab" id="heading4">
+
+      <!-- Heading -->
+      <a data-toggle="collapse" data-parent="#accordion4" href="#collapse4" aria-expanded="true"
+        aria-controls="collapse4">
+        <h5 class="mt-1 mb-0">
+          <span id="tripName4">Concert Trip #</span><span> Trip Price: <strong id="totalPrice4">N/A</strong></span>
+          <i class="fas fa-angle-down rotate-icon"></i>
+        </h5>
+      </a>
+
+    </div>
+
+    <!-- Card body -->
+    <div id="collapse4" class="collapse" role="tabpanel" aria-labelledby="heading4"
+      data-parent="#accordion4">
+      <div class="card-body">
+
+        <!--Top Table UI-->
+        <div class="table-ui p-2 mb-3 mx-3 mb-4">
+
+          <!--Grid row-->
+          <div class="row">
+
+            <div class="col">
+              <button type="button" class="btn btn-primary" onclick="load_accordion(4)">Trip Overview</button>
+            </div>
+
+            <div class="col">
+                <button type="button" class="btn btn-primary" onclick="show_flights(4)">Flights</button>
+            </div>
+
+            <div class="col">
+                <button type="button" class="btn btn-primary" onclick="show_hotels(4)">Hotels</button>
+            </div>
+
+            <div class="col">
+                <button type="button" class="btn btn-dark" onclick="spotify_button()">Spotify Playlist</button>
+            </div>
+
+          </div>
+          <!--Grid row-->
+
+        </div>
+        <!--Top Table UI-->
+
+        <!-- Table responsive wrapper -->
+        <div class="table-responsive mx-3">
+          <!--Table-->
+          <table class="table table-hover mb-0">
+
+            <!--Table head-->
+            <thead>
+              <tr>
+                <th class="th-lg"><strong>Type</strong></th>
+                <th class="th-lg"><strong>Description</strong></th>
+                <th class="th-lg"><strong>Price</strong></th>
+                <th></th>
+              </tr>
+            </thead>
+            <!--Table head-->
+
+            <!--Table body-->
+            <tbody>
+              <tr>
+                <td id="type40">Concert:</td>
+                <td id="description40">Concert Description...</td>
+                <td><strong id="price40">N/A</strong></td>
+                <td>
+                  <button type="button" class="btn btn-primary btn-sm" id="button40" onclick="add_to_trip(4,0)">Add to Trip</button>
+                </td>
+              </tr>
+              <tr>
+                <td id="type41">Flight:</td>
+                <td id="description41">N/A</td>
+                <td><strong id="price41">N/A</strong></td>
+                <td>
+                  <button type="button" class="btn btn-primary btn-sm" id="button41" onclick="add_to_trip(4,1)">Add to Trip</button>
+                </td>
+              </tr>
+              <tr>
+                <td id="type42">Hotel:</td>
+                <td id="description42">Hotel Information...</td>
+                <td><strong id="price42">N/A</strong></td>
+                <td>
+                  <button type="button" class="btn btn-primary btn-sm" id="button42" onclick="add_to_trip(4,2)">Add to Trip</button>
+                </td>
+              </tr>
+              <tr id="row43">
+                <td id="type43">Blank:</td>
+                <td id="description43">Information...</td>
+                <td><strong id="price43">N/A</strong></td>
+                <td>
+                  <button type="button" class="btn btn-primary btn-sm" id="button43" onclick="add_to_trip(4,3)">Add to Trip</button>
+                </td>
+              </tr>
+              <tr id="row44">
+                <td id="type44">Blank:</td>
+                <td id="description44">Information...</td>
+                <td><strong id="price44">N/A</strong></td>
+                <td>
+                  <button type="button" class="btn btn-primary btn-sm" id="button44" onclick="add_to_trip(4,4)">Add to Trip</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--End of user output-->
+<!--FIXED-->
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+<script src="callAPIs.js"></script>
+<script src="scripts.js"></script>
+
+  <!-- End your project here-->
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="MDBootstrap/js/jquery.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="MDBootstrap/js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="MDBootstrap/js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="MDBootstrap/js/mdb.min.js"></script>
+  <!-- Your custom scripts (optional) -->
+  <script type="text/javascript"></script>
+
+</body>
+</html>
